@@ -4,7 +4,11 @@ __pycache__/
 *.pyc
 
 # Data
-data/
+# Ignore all data EXCEPT raw WEB Bible
+# Allow raw folder
+#!data/raw/
+#data/*
+#!data/raw/WEB_bible.txt
 
 # Vector stores
 *.faiss
