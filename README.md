@@ -71,30 +71,31 @@ This repository is intended to:
 
 ## 🧩 Key Features (Planned)
 
-RAG Core
-Custom Bible-aware chunking (book, chapter, verse)
-Metadata-rich embeddings
-Pluggable vector stores (FAISS / ChromaDB)
-Configurable retrievers
+### RAG Core
+- Custom Bible-aware chunking (book, chapter, verse)
+- Metadata-rich embeddings
+- Pluggable vector stores (FAISS / ChromaDB)
+- Configurable retrievers
 
-Backend
-FastAPI-based REST API
-Modular service architecture
-Prompt templates for scripture-based Q&A
+### Backend
+- FastAPI-based REST API
+- Modular service architecture
+- Prompt templates for scripture-based Q&A
 
-Frontend
-Interactive UI for querying scripture
-Transparent display of retrieved context
+### Frontend
+- Interactive UI for querying scripture
+- Transparent display of retrieved context
 
-Deployment
-Dockerized services
-Environment-based configuration
-Production-ready project layout
+### Deployment
+- Dockerized services
+- Environment-based configuration
+- Production-ready project layout
 
 ---
 
-## 🧩  Repo Structure (Planned)
+## 🧩 Repo Structure (Planned)
 
+```text
 rag-bible-copilot/
 │
 ├── app/
@@ -114,4 +115,3 @@ rag-bible-copilot/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-
