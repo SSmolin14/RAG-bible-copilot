@@ -67,6 +67,7 @@ This repository is intended to:
                           │
                   REST API / UI
 
+---
 ##🧩 Key Features (Planned)
 RAG Core
 Custom Bible-aware chunking (book, chapter, verse)
@@ -88,6 +89,7 @@ Dockerized services
 Environment-based configuration
 Production-ready project layout
 
+---
 ##Planned Repo Structure
 rag-bible-copilot/
 │
