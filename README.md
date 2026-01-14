@@ -68,4 +68,51 @@ This repository is intended to:
                   REST API / UI
 ```
 ---
-##test
+## 🧩 Key Features (Planned)
+
+### RAG Core
+- Custom Bible-aware chunking (book, chapter, verse)
+- Metadata-rich embeddings
+- Pluggable vector stores (FAISS / ChromaDB)
+- Configurable retrievers
+
+### Backend
+- FastAPI-based REST API
+- Modular service architecture
+- Prompt templates for scripture-based Q&A
+
+### Frontend
+- Interactive UI for querying scripture
+- Transparent display of retrieved context
+
+### Deployment
+- Dockerized services
+- Environment-based configuration
+- Production-ready project layout
+
+---
+
+## 🧩 Repo Structure (Planned)
+
+```text
+rag-bible-copilot/
+│
+├── app/
+│   ├── api/            # FastAPI routes
+│   ├── core/           # RAG logic
+│   ├── embeddings/     # Embedding workflows
+│   ├── vectorstores/   # FAISS / Chroma adapters
+│   ├── prompts/        # Prompt templates
+│   └── config.py
+│
+├── data/               # Bible text (WEB)
+├── scripts/            # Ingestion & indexing scripts
+├── ui/                 # Frontend (later)
+├── tests/
+├── docker/
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+
