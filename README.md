@@ -116,3 +116,21 @@ rag-bible-copilot/
 └── README.md
 
 
+## 🚀 Quick Start
+
+### 1. Prerequisites
+- Python 3.10+
+- A Gemini API Key (Get one for free at [Google AI Studio](https://aistudio.google.com/))
+
+### 2. Installation
+```bash
+# Clone the repo
+git clone [https://github.com/SSmolin14/RAG-bible-copilot.git](https://github.com/SSmolin14/RAG-bible-copilot.git)
+cd RAG-bible-copilot
+
+## Setup
+1. Create a virtual environment: `python -m venv .venv`
+2. Activate it: `.venv\Scripts\activate`
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
