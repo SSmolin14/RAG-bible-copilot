@@ -2,17 +2,24 @@
 .venv/
 __pycache__/
 *.pyc
+.ipynb_checkpoints/
 
 # Data
-# Ignore all data EXCEPT raw WEB Bible
-# Allow raw folder
-#!data/raw/
-#data/*
-#!data/raw/WEB_bible.txt
+# 1. Ignore everything in the data folder
+data/*
+# 2. But don't ignore the 'raw' directory itself
+!data/raw/
+# 3. Specifically allow the Bible text
+!data/raw/WEB_bible.txt
+# 4. Keep any processed chunks or logs private
+data/processed/
+data/logs/
 
-# Vector stores
+# Vector stores (Keep these local to avoid huge repo sizes)
 *.faiss
 chroma_db/
+vector_indices/
 
-# Environment variables
+# Environment variables (CRITICAL: Do not push your API keys)
 .env
+.env.local
