@@ -1,48 +1,20 @@
-# RAG-bible-copilot
-World-English-Bible (WEB) based RAG Copilot
 
-# 📖 RAG Bible Copilot (WEB)
+   📖 RAG Bible Copilot (WEB)
+An open-source, full-stack Retrieval Augmented Generation (RAG) system built from the ground up using the World English Bible (WEB).
 
-An open-source, full-stack **Retrieval Augmented Generation (RAG)** system built from the ground up using the **World English Bible (WEB)**.
+This project demonstrates a production-ready RAG architecture, featuring custom text chunking, embedding workflows, a dual-backend vector search (ChromaDB/FAISS), and a modern FastAPI + React interface.
 
-This project demonstrates how to design and deploy a **production-ready RAG architecture**, including custom text chunking, embedding workflows, multi-backend vector search, and a web-based API/UI layer.
+🎯 Project Goals
+Domain-Specific RAG: Built a specialized system for scripture analysis.
 
----
+Hybrid LLM Support: Seamlessly switch between Gemini 1.5 (Cloud) and Ollama/Llama 3 (Local).
 
-## 🎯 Project Goals
+Multi-Backend Vector Search: Implemented adapters for both ChromaDB and FAISS.
 
-This repository is intended to:
+Full-Stack Implementation: Decoupled FastAPI REST API and a Vite-powered React UI.
 
-- Build a **domain-specific RAG system** from first principles
-- Demonstrate **best practices** for:
-  - Text ingestion & chunking
-  - Embedding pipelines
-  - Vector search (FAISS, ChromaDB)
-  - Prompt engineering
-  - RESTful APIs
-  - Containerized deployment
-- Serve as a **learning resource** and **portfolio-quality project**
-
----
-
-## 📚 Data Source
-
-- **Bible Translation:** World English Bible (WEB)
-- **License:** Public Domain
-- **Why WEB?**
-  - Modern English
-  - Clean formatting
-  - Fully redistributable
-  - Suitable for open-source NLP and RAG systems
-
-> ⚠️ Note: Other translations (e.g., NIV, ESV) are copyrighted and are **not included** in this repository.  
-> The system is designed so licensed texts can be ingested locally without code changes.
-
----
-
-## 🧠 System Architecture (High-Level)
-
-```text
+🧠 System Architecture
+Plaintext
                 ┌────────────────────┐
                 │  Bible Text (WEB)   │
                 └─────────┬──────────┘
@@ -50,7 +22,7 @@ This repository is intended to:
                    Custom Chunking
                           │
                 ┌─────────▼──────────┐
-                │  Embedding Models   │
+                │  Embedding Models  │
                 └─────────┬──────────┘
                           │
           ┌───────────────┴───────────────┐
@@ -59,78 +31,72 @@ This repository is intended to:
           │                               │
           └───────────────┬───────────────┘
                           │
-                 Semantic Retrieval
+                  Semantic Retrieval
                           │
                 ┌─────────▼──────────┐
-                │  LLM Generation     │
+                │  LLM Generation    │
                 └─────────┬──────────┘
                           │
-                  REST API / UI
-```
----
-## 🧩 Key Features (Planned)
+                    FastAPI + React
+🧩 Key Features
+RAG Core
+Bible-Aware Chunking: Logic optimized for book, chapter, and verse structures.
 
-### RAG Core
-- Custom Bible-aware chunking (book, chapter, verse)
-- Metadata-rich embeddings
-- Pluggable vector stores (FAISS / ChromaDB)
-- Configurable retrievers
+The "Bible Scholar" Persona: Advanced prompt engineering to ensure academic, grounded responses with citations.
 
-### Backend
-- FastAPI-based REST API
-- Modular service architecture
-- Prompt templates for scripture-based Q&A
+Metadata-Rich Retrieval: Every answer includes specific scripture references.
 
-### Frontend
-- Interactive UI for querying scripture
-- Transparent display of retrieved context
+Full-Stack Layer
+FastAPI Backend: Asynchronous endpoints with CORS support for secure frontend communication.
 
-### Deployment
-- Dockerized services
-- Environment-based configuration
-- Production-ready project layout
+React + Vite Frontend: Modern, responsive chat interface using Tailwind CSS and Lucide icons.
 
----
+🚀 Quick Start
+1. Prerequisites
+Python 3.10+ & Node.js (LTS)
 
-## 🧩 Repo Structure (Planned)
+A Gemini API Key (Optional: Can use Ollama for 100% local execution).
 
-```text
-rag-bible-copilot/
-│
-├── app/
-│   ├── api/            # FastAPI routes
-│   ├── core/           # RAG logic
-│   ├── embeddings/     # Embedding workflows
-│   ├── vectorstores/   # FAISS / Chroma adapters
-│   ├── prompts/        # Prompt templates
-│   └── config.py
-│
-├── data/               # Bible text (WEB)
-├── scripts/            # Ingestion & indexing scripts
-├── ui/                 # Frontend (later)
-├── tests/
-├── docker/
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-
-## 🚀 Quick Start
-
-### 1. Prerequisites
-- Python 3.10+
-- A Gemini API Key (Get one for free at [Google AI Studio](https://aistudio.google.com/))
-
-### 2. Installation
-```bash
-# Clone the repo
-git clone [https://github.com/SSmolin14/RAG-bible-copilot.git](https://github.com/SSmolin14/RAG-bible-copilot.git)
+2. Installation & Setup
+Bash
+# Clone the repository
+git clone https://github.com/SSmolin14/RAG-bible-copilot.git
 cd RAG-bible-copilot
 
-## Setup
-1. Create a virtual environment: `python -m venv .venv`
-2. Activate it: `.venv\Scripts\activate`
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+# Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+
+# Install Backend dependencies
+pip install -r requirements.txt
+
+# Create .env file
+echo "GEMINI_API_KEY=your_key_here" > .env
+3. Running the Application
+You will need two terminals open:
+
+Terminal A: The Backend (API)
+
+Bash
+uvicorn app.api.main:app --reload
+Terminal B: The Frontend (UI)
+
+Bash
+cd frontend
+npm install
+npm run dev
+Visit http://localhost:5173 to start chatting with the Bible Scholar!
+
+📂 Repository Structure
+Plaintext
+rag-bible-copilot/
+├── app/
+│   ├── api/             # FastAPI routes & CORS config
+│   ├── core/            # RAG logic & LLM Strategy
+│   ├── prompts/         # Bible Scholar system templates
+│   └── config.py        # Environment management
+├── data/
+│   └── raw/             # WEB Bible source text
+├── frontend/            # React + Vite + Tailwind UI
+├── requirements.txt     # Python dependencies
+└── .gitignore           # Securely excludes .env and .venv
